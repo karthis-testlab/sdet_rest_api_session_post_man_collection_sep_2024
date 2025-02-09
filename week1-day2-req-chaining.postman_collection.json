@@ -46,7 +46,22 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"{{description}}\",\r\n    \"short_description\": \"{{shortDescription}}\",\r\n    \"state\": \"1\",\r\n    \"urgency\": \"1\",\r\n    \"category\": \"software\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "https://dev262949.service-now.com/api/now/table/:tableName",
 					"protocol": "https",
