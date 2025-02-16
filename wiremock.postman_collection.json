@@ -168,6 +168,39 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "http://localhost:8080/java/welcome/add",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"wiremock\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/java/welcome/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"java",
+						"welcome",
+						"add"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

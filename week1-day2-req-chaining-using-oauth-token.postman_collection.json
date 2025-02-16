@@ -45,33 +45,31 @@
 						},
 						{
 							"key": "client_id",
-							"value": "d3794ae03b3f121047e922e479b4f796",
+							"value": "{{clientId}}",
 							"type": "text"
 						},
 						{
 							"key": "client_secret",
-							"value": "1!nNi:J8@G",
+							"value": "{{clientSceret}}",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "admin",
+							"value": "{{username}}",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "vW0eDfd+A0V-",
+							"value": "{{password}}",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "https://dev262949.service-now.com/oauth_token.do",
-					"protocol": "https",
+					"raw": "{{protocol}}://{{hostName}}/oauth_token.do",
+					"protocol": "{{protocol}}",
 					"host": [
-						"dev262949",
-						"service-now",
-						"com"
+						"{{hostName}}"
 					],
 					"path": [
 						"oauth_token.do"
@@ -180,23 +178,19 @@
 					}
 				},
 				"url": {
-					"raw": "https://dev262949.service-now.com/api/now/table/:tableName",
-					"protocol": "https",
+					"raw": "{{protocol}}://{{hostName}}/{{basePath}}/:tableName",
+					"protocol": "{{protocol}}",
 					"host": [
-						"dev262949",
-						"service-now",
-						"com"
+						"{{hostName}}"
 					],
 					"path": [
-						"api",
-						"now",
-						"table",
+						"{{basePath}}",
 						":tableName"
 					],
 					"variable": [
 						{
 							"key": "tableName",
-							"value": "incident"
+							"value": "{{tableName}}"
 						}
 					]
 				}
@@ -242,24 +236,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://dev262949.service-now.com/api/now/table/:tableName/:sys_id",
-					"protocol": "https",
+					"raw": "{{protocol}}://{{hostName}}/{{basePath}}/:tableName/:sys_id",
+					"protocol": "{{protocol}}",
 					"host": [
-						"dev262949",
-						"service-now",
-						"com"
+						"{{hostName}}"
 					],
 					"path": [
-						"api",
-						"now",
-						"table",
+						"{{basePath}}",
 						":tableName",
 						":sys_id"
 					],
 					"variable": [
 						{
 							"key": "tableName",
-							"value": "incident"
+							"value": "{{tableName}}"
 						},
 						{
 							"key": "sys_id",
@@ -309,24 +299,20 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://dev262949.service-now.com/api/now/table/:tableName/:sys_id",
-					"protocol": "https",
+					"raw": "{{protocol}}://{{hostName}}/{{basePath}}/:tableName/:sys_id",
+					"protocol": "{{protocol}}",
 					"host": [
-						"dev262949",
-						"service-now",
-						"com"
+						"{{hostName}}"
 					],
 					"path": [
-						"api",
-						"now",
-						"table",
+						"{{basePath}}",
 						":tableName",
 						":sys_id"
 					],
 					"variable": [
 						{
 							"key": "tableName",
-							"value": "incident"
+							"value": "{{tableName}}"
 						},
 						{
 							"key": "sys_id",
@@ -371,24 +357,20 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://dev262949.service-now.com/api/now/table/:tableName/:sys_id",
-					"protocol": "https",
+					"raw": "{{protocol}}://{{hostName}}/{{basePath}}/:tableName/:sys_id",
+					"protocol": "{{protocol}}",
 					"host": [
-						"dev262949",
-						"service-now",
-						"com"
+						"{{hostName}}"
 					],
 					"path": [
-						"api",
-						"now",
-						"table",
+						"{{basePath}}",
 						":tableName",
 						":sys_id"
 					],
 					"variable": [
 						{
 							"key": "tableName",
-							"value": "incident"
+							"value": "{{tableName}}"
 						},
 						{
 							"key": "sys_id",
@@ -433,24 +415,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://dev262949.service-now.com/api/now/table/:tableName/:sys_id",
-					"protocol": "https",
+					"raw": "{{protocol}}://{{hostName}}/{{basePath}}/:tableName/:sys_id",
+					"protocol": "{{protocol}}",
 					"host": [
-						"dev262949",
-						"service-now",
-						"com"
+						"{{hostName}}"
 					],
 					"path": [
-						"api",
-						"now",
-						"table",
+						"{{basePath}}",
 						":tableName",
 						":sys_id"
 					],
 					"variable": [
 						{
 							"key": "tableName",
-							"value": "incident"
+							"value": "{{tableName}}"
 						},
 						{
 							"key": "sys_id",
@@ -462,6 +440,28 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "sysId",
@@ -470,6 +470,36 @@
 		{
 			"key": "accessToken",
 			"value": ""
+		},
+		{
+			"key": "basePath",
+			"value": "api/now/table",
+			"type": "string"
+		},
+		{
+			"key": "tableName",
+			"value": "incident",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "clientId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "clientSceret",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
