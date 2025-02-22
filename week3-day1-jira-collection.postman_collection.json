@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "ab2909d2-894e-49d7-b25b-70fe45f0799c",
+		"name": "week3-day1-jira-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28447185"
+	},
+	"item": [
+		{
+			"name": "Get_all_projects",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/project/search",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"project",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_recent_project",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/project/recent",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"project",
+						"recent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_a_project",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/project/:projectIdOrKey",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"project",
+						":projectIdOrKey"
+					],
+					"variable": [
+						{
+							"key": "projectIdOrKey",
+							"value": "TSTPRJCT1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_a_user_story_issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"project\": {\r\n            \"key\": \"TES\"\r\n        },\r\n        \"issuetype\": {\r\n            \"name\": \"Story\"\r\n        },\r\n        \"summary\": \"Main order flow broken\",\r\n        \"description\": {\r\n            \"content\": [\r\n                {\r\n                    \"content\": [\r\n                        {\r\n                            \"text\": \"Order entry fails when selecting supplier.Line 1\",\r\n                            \"type\": \"text\"\r\n                        },\r\n                        {\r\n                            \"text\": \"Order entry fails when selecting supplier.Line 2\",\r\n                            \"type\": \"text\"\r\n                        }\r\n                    ],\r\n                    \"type\": \"paragraph\"\r\n                }\r\n            ],\r\n            \"type\": \"doc\",\r\n            \"version\": 1\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/issue",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_a_bug_issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"project\": {\r\n            \"key\": \"TES\"\r\n        },\r\n        \"issuetype\": {\r\n            \"name\": \"Bug\"\r\n        },\r\n        \"summary\": \"Main order flow broken\",\r\n        \"description\": {\r\n            \"content\": [\r\n                {\r\n                    \"content\": [\r\n                        {\r\n                            \"text\": \"Order entry fails when selecting supplier.Line 1\",\r\n                            \"type\": \"text\"\r\n                        },\r\n                        {\r\n                            \"text\": \"Order entry fails when selecting supplier.Line 2\",\r\n                            \"type\": \"text\"\r\n                        }\r\n                    ],\r\n                    \"type\": \"paragraph\"\r\n                }\r\n            ],\r\n            \"type\": \"doc\",\r\n            \"version\": 1\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/issue",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"issue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_a_user_story_issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"description\": {\r\n            \"version\": 1,\r\n            \"type\": \"doc\",\r\n            \"content\": [\r\n                {\r\n                    \"type\": \"paragraph\",\r\n                    \"content\": [\r\n                        {\r\n                            \"type\": \"text\",\r\n                            \"text\": \"Order entry fails when selecting supplier.\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"paragraph\",\r\n                    \"content\": [\r\n                        {\r\n                            \"type\": \"text\",\r\n                            \"text\": \"Order entry fails when selecting supplier1.\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"paragraph\",\r\n                    \"content\": [\r\n                        {\r\n                            \"type\": \"text\",\r\n                            \"text\": \"Edit issue\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n        },\r\n        \"summary\": \"Bug in business logic\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/issue/10047",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"issue",
+						"10047"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_a_user_story_issue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/issue/10047",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"issue",
+						"10047"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-attachment-in-jira-iisue",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{api_token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user-name}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Atlassian-Token",
+						"value": "no-check",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Karthikeyan_Rajendran/Trainings/TestLeaf/REST_API_Session_Dec/workspace/makaia4.0/Post_Testcase_Result.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{host-name}}{{base-path}}/issue/:issueIdOrKey/attachments",
+					"protocol": "https",
+					"host": [
+						"{{host-name}}{{base-path}}"
+					],
+					"path": [
+						"issue",
+						":issueIdOrKey",
+						"attachments"
+					],
+					"variable": [
+						{
+							"key": "issueIdOrKey",
+							"value": "10066"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host-name",
+			"value": ""
+		},
+		{
+			"key": "base-path",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user-name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "api_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
